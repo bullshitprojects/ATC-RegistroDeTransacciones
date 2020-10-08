@@ -75,7 +75,5 @@ namespace SistemaDePagoEmpleados
 
 
 
-        //Metodos
-
     }
 }

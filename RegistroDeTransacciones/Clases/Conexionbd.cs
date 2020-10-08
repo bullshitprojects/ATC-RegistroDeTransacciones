@@ -76,8 +76,6 @@ namespace RegistroDeTransacciones
             return salida;
         }
 
-       // cmd = new SqlCommand("Select * from LibroDiario where Id=" + id + "", Conectarbd);
-
 
         public List <LibroDiario> CargarLibroDiario()
         {

@@ -35,9 +35,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.deducciones = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnGenerarBoleta = new System.Windows.Forms.Button();
+            this.btnCalcularSalario = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.txtOrden = new System.Windows.Forms.NumericUpDown();
@@ -47,7 +49,6 @@
             this.txtValor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.btnCalcularSalario = new System.Windows.Forms.Button();
             this.txtNaturaleza = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.txtCod = new System.Windows.Forms.TextBox();
             this.txtCuenta = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.libroDiarioBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -113,11 +113,11 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Location = new System.Drawing.Point(42, 187);
+            this.dataGridView1.Location = new System.Drawing.Point(36, 187);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1124, 460);
+            this.dataGridView1.Size = new System.Drawing.Size(1116, 460);
             this.dataGridView1.TabIndex = 60;
             this.dataGridView1.Visible = false;
             // 
@@ -134,6 +134,22 @@
             this.deducciones.Name = "deducciones";
             this.deducciones.Size = new System.Drawing.Size(1165, 49);
             this.deducciones.TabIndex = 32;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.Location = new System.Drawing.Point(185, 9);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(192, 29);
+            this.button2.TabIndex = 47;
+            this.button2.Text = "Imprimir Libro Diario";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -185,6 +201,23 @@
             this.btnGenerarBoleta.Text = "Generar Mayorización";
             this.btnGenerarBoleta.UseVisualStyleBackColor = false;
             this.btnGenerarBoleta.Click += new System.EventHandler(this.btnGenerarBoleta_Click);
+            // 
+            // btnCalcularSalario
+            // 
+            this.btnCalcularSalario.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCalcularSalario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.btnCalcularSalario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCalcularSalario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalcularSalario.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalcularSalario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCalcularSalario.Location = new System.Drawing.Point(9, 9);
+            this.btnCalcularSalario.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCalcularSalario.Name = "btnCalcularSalario";
+            this.btnCalcularSalario.Size = new System.Drawing.Size(152, 29);
+            this.btnCalcularSalario.TabIndex = 13;
+            this.btnCalcularSalario.Text = "Agregar Asiento";
+            this.btnCalcularSalario.UseVisualStyleBackColor = false;
+            this.btnCalcularSalario.Click += new System.EventHandler(this.btnCalcularSalario_Click_1);
             // 
             // panel4
             // 
@@ -300,23 +333,6 @@
             this.label36.Size = new System.Drawing.Size(127, 18);
             this.label36.TabIndex = 40;
             this.label36.Text = "Agregar Asiento";
-            // 
-            // btnCalcularSalario
-            // 
-            this.btnCalcularSalario.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCalcularSalario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.btnCalcularSalario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCalcularSalario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalcularSalario.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcularSalario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCalcularSalario.Location = new System.Drawing.Point(9, 9);
-            this.btnCalcularSalario.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCalcularSalario.Name = "btnCalcularSalario";
-            this.btnCalcularSalario.Size = new System.Drawing.Size(152, 29);
-            this.btnCalcularSalario.TabIndex = 13;
-            this.btnCalcularSalario.Text = "Agregar Asiento";
-            this.btnCalcularSalario.UseVisualStyleBackColor = false;
-            this.btnCalcularSalario.Click += new System.EventHandler(this.btnCalcularSalario_Click_1);
             // 
             // txtNaturaleza
             // 
@@ -436,22 +452,6 @@
             this.label10.Size = new System.Drawing.Size(61, 17);
             this.label10.TabIndex = 29;
             this.label10.Text = "Cuenta:";
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(185, 9);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(192, 29);
-            this.button2.TabIndex = 47;
-            this.button2.Text = "Imprimir Libro Diario";
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 

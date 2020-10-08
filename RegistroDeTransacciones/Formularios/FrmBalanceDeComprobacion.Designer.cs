@@ -45,7 +45,7 @@
             this.panel1.Controls.Add(this.button4);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(935, 591);
+            this.panel1.Size = new System.Drawing.Size(738, 576);
             this.panel1.TabIndex = 63;
             // 
             // label36
@@ -53,7 +53,7 @@
             this.label36.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(31, 37);
+            this.label36.Location = new System.Drawing.Point(31, 40);
             this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(301, 18);
@@ -76,11 +76,11 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 76);
+            this.dataGridView1.Location = new System.Drawing.Point(34, 75);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(874, 439);
+            this.dataGridView1.Size = new System.Drawing.Size(693, 439);
             this.dataGridView1.TabIndex = 59;
             this.dataGridView1.Visible = false;
             // 
@@ -92,7 +92,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(771, 534);
+            this.button4.Location = new System.Drawing.Point(563, 519);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(137, 29);
@@ -105,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 588);
+            this.ClientSize = new System.Drawing.Size(738, 572);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
