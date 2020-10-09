@@ -16,9 +16,10 @@ namespace RegistroDeTransacciones
         BalanceDeComprobacion oBalanceDeComprobacion = new BalanceDeComprobacion();
         List<Mayorizacion> lMayorizacion = new List<Mayorizacion>();
         Mayorizacion oMayorizacion = new Mayorizacion();
-
+        List<CatalogoDeCuentas> lCatalogo = new List<CatalogoDeCuentas>();
+        CatalogoDeCuentas oCatalogo = new CatalogoDeCuentas();
         //Cadena de Conexion
-        string cadena = "data source = DESKTOP-ERVRFVP\\SQLEXPRESS; initial catalog = DBprueba; Integrated Security=True";
+        string cadena = "data source = DESKTOP-ERVRFVP\\SQLEXPRESS; initial catalog = RegistroDeTransacciones; Integrated Security=True";
 
         public SqlConnection Conectarbd = new SqlConnection();
         SqlCommand cmd;
@@ -244,6 +245,32 @@ namespace RegistroDeTransacciones
                 MessageBox.Show("No se pudo consultar bien: " + ex.ToString());
             }
             return lMayorizacion;
+        }
+
+        public List<CatalogoDeCuentas> CargarCatalogoDeCuentas()
+        {
+            try
+            {
+                lCatalogo = new List<CatalogoDeCuentas>();
+                abrir();
+                cmd = new SqlCommand("select * from catalogo_cuenta order by codigo", Conectarbd);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    oCatalogo = new CatalogoDeCuentas();
+                    oCatalogo.Naturaleza = dr.GetString(1);
+                    oCatalogo.Codigo = dr.GetString(2);
+                    oCatalogo.Cuenta = dr.GetString(3);
+                    lCatalogo.Add(oCatalogo);
+                }
+                dr.Close();
+                cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo consultar bien: " + ex.ToString());
+            }
+            return lCatalogo;
         }
 
         //Metodo para cerrar la conexion

@@ -108,6 +108,7 @@ namespace SistemaDePagoEmpleados
         {
             this.Close();
         }
+
     }
     }
 
