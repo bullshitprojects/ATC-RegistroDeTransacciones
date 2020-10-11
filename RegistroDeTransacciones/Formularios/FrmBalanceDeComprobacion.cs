@@ -1,4 +1,5 @@
-﻿using SistemaDePagoEmpleados;
+﻿using RegistroDeTransacciones.Reportes;
+using SistemaDePagoEmpleados;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,9 +25,19 @@ namespace RegistroDeTransacciones
 
         private void button4_Click(object sender, EventArgs e)
         {
-            lBalance = conexion.BalanceDeComprobacion(); // Obtencion de la lista de Balance de Comprobacion
-
-            //programar reporte de balance de comprobacion -- Julio
+           
+            try
+            {
+                lBalance = conexion.BalanceDeComprobacion();
+                BalancedeComprobacionDoc doc = new BalancedeComprobacionDoc();
+                doc.PrintDocument(lBalance);
+                MessageBox.Show("Archivo guardado con éxito en: " + doc.path, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                System.Diagnostics.Process.Start(doc.path);
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Ocurrió un problema al intentar guardar el documento:\n" + ee, "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
 
         }

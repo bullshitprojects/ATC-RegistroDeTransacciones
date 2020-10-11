@@ -19,7 +19,7 @@ namespace RegistroDeTransacciones
         List<CatalogoDeCuentas> lCatalogo = new List<CatalogoDeCuentas>();
         CatalogoDeCuentas oCatalogo = new CatalogoDeCuentas();
         //Cadena de Conexion
-        string cadena = "data source = DESKTOP-ERVRFVP\\SQLEXPRESS; initial catalog = RegistroDeTransacciones; Integrated Security=True";
+        string cadena = "data source = ASUS\\SQLEXPRESS; initial catalog = RegistroDeTransacciones; Integrated Security=True";
 
         public SqlConnection Conectarbd = new SqlConnection();
         SqlCommand cmd;

@@ -1,5 +1,6 @@
 ﻿using RegistroDeTransacciones;
 using RegistroDeTransacciones.Formularios;
+using RegistroDeTransacciones.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -109,6 +110,20 @@ namespace SistemaDePagoEmpleados
             this.Close();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LibroDiarioDoc doc = new LibroDiarioDoc();
+                doc.PrintDocument(libroDiario);
+                MessageBox.Show("Archivo guardado con éxito en: " + doc.path, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                System.Diagnostics.Process.Start(doc.path);
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Ocurrió un problema al intentar guardar el documento" + ee, "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
     }
 

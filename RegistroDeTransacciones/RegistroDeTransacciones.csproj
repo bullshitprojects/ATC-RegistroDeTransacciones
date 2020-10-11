@@ -124,7 +124,8 @@
     <Compile Include="Formularios\FrmMayorizacion.Designer.cs">
       <DependentUpon>FrmMayorizacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\DocumentGenerator.cs" />
+    <Compile Include="Reportes\BalancedeComprobacionDoc.cs" />
+    <Compile Include="Reportes\CatalogodeCuentaDoc.cs" />
     <Compile Include="Formularios\FrmLibroDiario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +160,8 @@
     <Compile Include="Clases\Mayorizacion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\LibroDiarioDoc.cs" />
+    <Compile Include="Reportes\MayorizacionDoc.cs" />
     <EmbeddedResource Include="Formularios\FrmCargarCatalogoDeCuenta.resx">
       <DependentUpon>FrmCargarCatalogoDeCuenta.cs</DependentUpon>
     </EmbeddedResource>
