@@ -124,6 +124,40 @@ namespace SistemaDePagoEmpleados
                 MessageBox.Show("Ocurrió un problema al intentar guardar el documento" + ee, "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        public class DataGridViewUtils
+        {
+            public static string GetValorCelda(DataGridView dgv, int num)
+            {
+                try
+                {
+                    string valor = "";
+                    valor = dgv.Rows[dgv.CurrentRow.Index].Cells[num].Value.ToString();
+                    return valor;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conexion.EliminarAsiento(DataGridViewUtils.GetValorCelda(dataGridView1, 1), DataGridViewUtils.GetValorCelda(dataGridView1, 2));
+                MessageBox.Show("Asiento Contable Eliminado Con Exito");
+                CargarTabla();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
     }
 

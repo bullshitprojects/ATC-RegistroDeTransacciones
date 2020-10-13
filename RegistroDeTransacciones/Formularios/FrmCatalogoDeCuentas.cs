@@ -26,12 +26,23 @@ namespace SistemaDePagoEmpleados
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                conexion.EliminarCuenta(DataGridViewUtils.GetValorCelda(dataGridView1, 0), DataGridViewUtils.GetValorCelda(dataGridView1, 1));
+                MessageBox.Show("Cuenta Eliminada Con Exito");
+                CargarTabla();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            conexion.InsertarCuenta(txtCodigo.Text, txtCuenta.Text, txtNaturaleza.Text);
+            CargarTabla();
         }
 
         public void CargarTabla()
@@ -55,6 +66,30 @@ namespace SistemaDePagoEmpleados
             {
                 MessageBox.Show("Ocurrió un problema al intentar guardar el documento:\n" +  ee , "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        public class DataGridViewUtils
+        {
+            public static string GetValorCelda(DataGridView dgv, int num)
+            {
+                try
+                {
+                    string valor = "";
+                    valor = dgv.Rows[dgv.CurrentRow.Index].Cells[num].Value.ToString();
+                    return valor;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

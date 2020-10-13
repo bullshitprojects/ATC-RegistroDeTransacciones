@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using SistemaDePagoEmpleados;
+using RegistroDeTransacciones.Clases;
 
 namespace RegistroDeTransacciones
 {
@@ -18,8 +19,11 @@ namespace RegistroDeTransacciones
         Mayorizacion oMayorizacion = new Mayorizacion();
         List<CatalogoDeCuentas> lCatalogo = new List<CatalogoDeCuentas>();
         CatalogoDeCuentas oCatalogo = new CatalogoDeCuentas();
+        Empresa oEmpresa = new Empresa();
+
         //Cadena de Conexion
-        string cadena = "data source = ASUS\\SQLEXPRESS; initial catalog = RegistroDeTransacciones; Integrated Security=True";
+        //string cadena = "data source = ASUS\\SQLEXPRESS; initial catalog = RegistroDeTransacciones; Integrated Security=True";
+        string cadena = "data source = DESKTOP-ERVRFVP\\SQLEXPRESS; initial catalog = RegistroDeTransacciones; Integrated Security=True";
 
         public SqlConnection Conectarbd = new SqlConnection();
         SqlCommand cmd;
@@ -271,6 +275,199 @@ namespace RegistroDeTransacciones
                 MessageBox.Show("No se pudo consultar bien: " + ex.ToString());
             }
             return lCatalogo;
+        }
+
+
+        //Metodo para Agregar un Asiento contable
+        public string AgregarEmpresa(string empresa, string nit, string razonSocial, string email, string usuario, string contra)
+        {
+            string salida = "Empresa Agregada Con Exito";
+            try
+            {
+                abrir();
+                cmd = new SqlCommand("Insert into empresa (nEmpresa, nitEmpresa, razonSocial, email, usuario, contra) " +
+                "values('" + empresa + "','" + nit + "','" + razonSocial + "','" + email + "','" + usuario + "','" + contra + "')", Conectarbd);
+                cmd.ExecuteNonQuery();
+                cerrar();
+            }
+            catch (Exception ex)
+            {
+                salida = "No se conecto: " + ex.ToString();
+                cerrar();
+            }
+            return salida;
+        }
+
+        //Metodo para Modificar Empresa
+        public string ModificarEmpresa(string empresa, string nit, string razonSocial, string email, string usuario, string contra)
+        {
+            string salida = "Empresa Modificada Con Exito";
+            try
+            {
+                abrir();
+                cmd = new SqlCommand("Update empresa set nEmpresa= '" + empresa + "', nitEmpresa= '" + nit + "', razonSocial= '" + razonSocial + "', email= '" + email + "', usuario= '" + usuario + "', contra= '" + contra + "'", Conectarbd);
+                cmd.ExecuteNonQuery();
+                cerrar();
+            }
+            catch (Exception ex)
+            {
+                salida = "No se conecto: " + ex.ToString();
+                cerrar();
+            }
+            return salida;
+        }
+
+        public int ConsultarEmpresa()
+        {
+            int contador=0;
+            try
+            {               
+                abrir();
+                cmd = new SqlCommand("select * from empresa", Conectarbd);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    contador += 1;
+                }
+                dr.Close();
+                cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo consultar bien: " + ex.ToString());
+            }
+            return contador;
+        }
+
+        public int Login(string usuario, string contra)
+        {
+            int validar = 0;
+            try
+            {
+                abrir();
+                cmd = new SqlCommand("select usuario, contra from empresa", Conectarbd);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    if (dr.GetString(0)==usuario && dr.GetString(1)==contra)
+                    {
+                        validar = 1;
+                    }
+                }
+                dr.Close();
+                cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo consultar bien: " + ex.ToString());
+            }
+            return validar;
+        }
+
+        //Metodo para Eliminar La empresa y todos sus registros
+        public string EliminarEmpresa()
+        {
+            string salida = "Empresa y Todos sus registros fueron eliminados con exito";
+            try
+            {
+                abrir();
+                cmd = new SqlCommand("DELETE FROM empresa", Conectarbd);
+                cmd.ExecuteNonQuery();
+                cmd = new SqlCommand("DELETE FROM LibroDiario", Conectarbd);
+                cmd.ExecuteNonQuery();
+                cerrar();
+            }
+            catch (Exception ex)
+            {
+                salida = "No se conecto: " + ex.ToString();
+                cerrar();
+            }
+            return salida;
+        }
+
+        //Metodo para Eliminar La empresa y todos sus registros
+        public string EliminarAsiento(string asiento, string orden)
+        {
+            string salida = "Asiento Eliminado";
+            try
+            {
+                abrir();
+                cmd = new SqlCommand("DELETE FROM LibroDiario WHERE asiento = '" + asiento + "' and orden= '" + orden + "'", Conectarbd); 
+                cmd.ExecuteNonQuery();
+                cerrar();
+            }
+            catch (Exception ex)
+            {
+                salida = "No se conecto: " + ex.ToString();
+                cerrar();
+            }
+            return salida;
+        }
+
+        public Empresa CargarEmpresa()
+        {
+            try
+            {
+                oEmpresa = new Empresa();
+                abrir();
+                cmd = new SqlCommand("select * from empresa", Conectarbd);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    oEmpresa.NEmpresa = dr.GetString(1);
+                    oEmpresa.NitEmpresa = dr.GetString(2);
+                    oEmpresa.RazonSocial = dr.GetString(3);
+                    oEmpresa.Email = dr.GetString(4);
+                    oEmpresa.Usuario = dr.GetString(5);
+                    oEmpresa.Contra = dr.GetString(6);
+                }
+                dr.Close();
+                cerrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo consultar bien: " + ex.ToString());
+            }
+            return oEmpresa;
+        }
+
+        //Metodo para Agregar una cuenta
+        public string InsertarCuenta(string codigo, string cuenta, string naturaleza)
+        {
+            string salida = "Asiento Insertado Con Exito";
+            try
+            {
+                abrir();
+                cmd = new SqlCommand("Insert into catalogo_cuenta (naturaleza, codigo, cuenta) " +
+                "values('" + naturaleza + "','" + codigo + "','" + cuenta + "')", Conectarbd);
+                cmd.ExecuteNonQuery();
+                cerrar();
+            }
+            catch (Exception ex)
+            {
+                salida = "No se conecto: " + ex.ToString();
+                cerrar();
+            }
+            return salida;
+        }
+
+
+        public string EliminarCuenta(string codigo, string cuenta)
+        {
+            string salida = "Cuenta Eliminado";
+            try
+            {
+                abrir();
+                cmd = new SqlCommand("DELETE FROM catalogo_cuenta WHERE codigo = '" + codigo + "' and cuenta= '" + cuenta + "'", Conectarbd);
+                cmd.ExecuteNonQuery();
+                cerrar();
+            }
+            catch (Exception ex)
+            {
+                salida = "No se conecto: " + ex.ToString();
+                cerrar();
+            }
+            return salida;
         }
 
         //Metodo para cerrar la conexion
