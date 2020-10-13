@@ -201,17 +201,19 @@ namespace RegistroDeTransacciones
 
                             //Fila en blanco
                             oMayorizacion = new Mayorizacion();
+                            oMayorizacion.Fecha = ".";
+                            oMayorizacion.Codigo = " ";
+                            oMayorizacion.Concepto = " ";
+                            oMayorizacion.Debe = " ";
+                            oMayorizacion.Haber = " ";
+                            oMayorizacion.Saldo = " ";
                             lMayorizacion.Add(oMayorizacion);
-
                             totalDebe = 0;
                             totalHaber = 0;
                             saldo = 0;
                         }
-
                         acesso = 1;
-
                     }
-
 
                     oMayorizacion = new Mayorizacion();
                     oMayorizacion.Fecha = dr.GetString(0);
@@ -230,16 +232,24 @@ namespace RegistroDeTransacciones
                     {
                         oMayorizacion.Saldo = "$  " + Convert.ToString(saldo + (Convert.ToDouble(dr.GetValue(4).ToString()) - Convert.ToDouble(dr.GetValue(5).ToString())));
                         saldo += (Convert.ToDouble(dr.GetValue(4).ToString()) - Convert.ToDouble(dr.GetValue(5).ToString()));
-                    }
-                    
+                    }                  
 
                     cuentaFlotante = oMayorizacion.Codigo;
                     totalDebe += Convert.ToDouble(dr.GetValue(4).ToString());
                     totalHaber += Convert.ToDouble(dr.GetValue(5).ToString());
-
                     lMayorizacion.Add(oMayorizacion);
 
                 }
+                // Agregamos los ultimos totales
+                oMayorizacion = new Mayorizacion();
+                oMayorizacion.Fecha = "";
+                oMayorizacion.Codigo = "";
+                oMayorizacion.Concepto = "                                Total";
+
+                oMayorizacion.Debe = "$  " + Convert.ToString(totalDebe);
+                oMayorizacion.Haber = "$  " + Convert.ToString(totalHaber);
+                oMayorizacion.Saldo = "$  " + Convert.ToString(saldo);
+                lMayorizacion.Add(oMayorizacion);
                 dr.Close();
 
                 cerrar();
