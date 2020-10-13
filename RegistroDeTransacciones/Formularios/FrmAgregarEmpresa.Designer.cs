@@ -280,7 +280,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmAgregarEmpresa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAgregarEmpresa";
+            this.Text = "Agregar Empresa";
             this.Load += new System.EventHandler(this.FrmAgregarEmpresa_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

@@ -42,6 +42,7 @@
             this.btnGenerarBoleta = new System.Windows.Forms.Button();
             this.btnCalcularSalario = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtFecha = new System.Windows.Forms.DateTimePicker();
             this.txtOrden = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.txtCuenta = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.libroDiarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtFecha = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -266,6 +266,13 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1187, 157);
             this.panel4.TabIndex = 30;
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(108, 119);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(158, 23);
+            this.txtFecha.TabIndex = 2;
             // 
             // txtOrden
             // 
@@ -487,13 +494,6 @@
             // 
             this.libroDiarioBindingSource.DataMember = "LibroDiario";
             // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(108, 119);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(158, 23);
-            this.txtFecha.TabIndex = 2;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,7 +539,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtConcepto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.TextBox txtCod;
@@ -549,5 +548,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DateTimePicker txtFecha;
+        public System.Windows.Forms.TextBox txtConcepto;
     }
 }

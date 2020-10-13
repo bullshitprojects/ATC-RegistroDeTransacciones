@@ -117,7 +117,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmCargarCatalogoDeCuenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CargarCuenta";
+            this.Text = "Cargar Cuenta";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

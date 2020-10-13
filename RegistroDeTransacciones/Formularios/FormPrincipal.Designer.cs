@@ -82,12 +82,13 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(128)))), ((int)(((byte)(188)))));
-            this.label4.Location = new System.Drawing.Point(858, 682);
+            this.label4.Location = new System.Drawing.Point(798, 631);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(292, 29);
+            this.label4.Size = new System.Drawing.Size(370, 87);
             this.label4.TabIndex = 3;
-            this.label4.Text = "César Iván Martínez Pérez";
+            this.label4.Text = "César Iván Martínez Pérez\r\nJulio Eduardo Canizalez Salinas\r\nHéctor Ernesto Amaya " +
+    "Menéndez";
             // 
             // panelMenu
             // 

@@ -25,6 +25,7 @@ namespace SistemaDePagoEmpleados
             InitializeComponent();
             Form1.f1 = this;
             CargarTabla();
+
         }
 
         public void CrearAsiento()
@@ -91,7 +92,6 @@ namespace SistemaDePagoEmpleados
         {
             FrmCargarCatalogoDeCuenta F = new FrmCargarCatalogoDeCuenta();
             F.Show();
-            txtConcepto.Focus();
         }
 
         private void button3_Click(object sender, EventArgs e)
