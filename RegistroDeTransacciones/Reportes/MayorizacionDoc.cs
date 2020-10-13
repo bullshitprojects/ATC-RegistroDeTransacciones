@@ -91,7 +91,7 @@ namespace RegistroDeTransacciones.Reportes
                             tabla.AddCell(content);
                             content = new Cell(1, 1).Add(new Paragraph(lista[i].Haber)).AddStyle(mainStyles[102]);
                             tabla.AddCell(content);
-                            content = new Cell(1, 1).Add(new Paragraph(lista[i].Saldo)).AddStyle(mainStyles[102]);
+                            content = new Cell(1, 1).Add(new Paragraph( lista[i].Saldo)).AddStyle(mainStyles[102]);
                             tabla.AddCell(content);
                         }
                         else

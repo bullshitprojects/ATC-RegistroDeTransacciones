@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -113,11 +114,13 @@
             // 
             this.txtContra.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtContra.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContra.Location = new System.Drawing.Point(208, 110);
+            this.txtContra.Location = new System.Drawing.Point(182, 110);
             this.txtContra.Margin = new System.Windows.Forms.Padding(2);
             this.txtContra.Name = "txtContra";
-            this.txtContra.Size = new System.Drawing.Size(117, 25);
+            this.txtContra.PasswordChar = '*';
+            this.txtContra.Size = new System.Drawing.Size(143, 25);
             this.txtContra.TabIndex = 54;
+            this.txtContra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContra_KeyDown);
             // 
             // label15
             // 
@@ -147,10 +150,10 @@
             // 
             this.txtUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtUser.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Location = new System.Drawing.Point(211, 61);
+            this.txtUser.Location = new System.Drawing.Point(182, 61);
             this.txtUser.Margin = new System.Windows.Forms.Padding(2);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(114, 25);
+            this.txtUser.Size = new System.Drawing.Size(143, 25);
             this.txtUser.TabIndex = 52;
             // 
             // FrmLogin
@@ -160,11 +163,13 @@
             this.ClientSize = new System.Drawing.Size(420, 357);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmLogin";
+            this.Text = "Login";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

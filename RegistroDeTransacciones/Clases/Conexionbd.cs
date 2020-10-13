@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using SistemaDePagoEmpleados;
 using RegistroDeTransacciones.Clases;
@@ -23,16 +23,16 @@ namespace RegistroDeTransacciones
 
         //Cadena de Conexion
         //string cadena = "data source = ASUS\\SQLEXPRESS; initial catalog = RegistroDeTransacciones; Integrated Security=True";
-        string cadena = "data source = DESKTOP-ERVRFVP\\SQLEXPRESS; initial catalog = RegistroDeTransacciones; Integrated Security=True";
+        string cadena = "server=remotemysql.com;port=3306; database=5M7XK24K7a;uid=5M7XK24K7a;password=4lSHKSOmEH;";
 
-        public SqlConnection Conectarbd = new SqlConnection();
-        SqlCommand cmd;
-        SqlDataReader dr;
+        public MySqlConnection Conectarbd;
+        MySqlCommand cmd;
+        MySqlDataReader dr;
 
         //Constructor
         public Conexionbd()
         {
-            Conectarbd.ConnectionString = cadena;
+            Conectarbd = new MySqlConnection(cadena);
         }
 
         //Metodo para abrir la conexion
@@ -53,23 +53,23 @@ namespace RegistroDeTransacciones
         {
             string salida = "Asiento Insertado Con Exito";
             try
-            {
-                abrir();
+            { 
                 if (naturaleza == "Parcial")
                 {
-                    cmd = new SqlCommand("Insert into LibroDiario (fecha, asiento, orden, codigo, cuenta, concepto, parcial, debe, haber) " +
+                    cmd = new MySqlCommand("Insert into LibroDiario (fecha, asiento, orden, codigo, cuenta, concepto, parcial, debe, haber) " +
                      "values('" + fecha + "','" + asiento + "','" + orden + "','" + codigo + "','" + cuenta + "','" + concepto + "','" + valor + "','" + 0 + "','" + 0 + "')", Conectarbd);
                 }
                 if (naturaleza == "Debe")
                 {
-                    cmd = new SqlCommand("Insert into LibroDiario (fecha, asiento, orden, codigo, cuenta, concepto, parcial, debe, haber) " +
+                    cmd = new MySqlCommand("Insert into LibroDiario (fecha, asiento, orden, codigo, cuenta, concepto, parcial, debe, haber) " +
                      "values('" + fecha + "','" + asiento + "','" + orden + "','" + codigo + "','" + cuenta + "','" + concepto + "','" + 0 + "','" + valor + "','" + 0 + "')", Conectarbd);
                 }
                 if (naturaleza == "Haber")
                 {
-                    cmd = new SqlCommand("Insert into LibroDiario (fecha, asiento, orden, codigo, cuenta, concepto, parcial, debe, haber) " +
+                    cmd = new MySqlCommand("Insert into LibroDiario (fecha, asiento, orden, codigo, cuenta, concepto, parcial, debe, haber) " +
                      "values('" + fecha + "','" + asiento + "','" + orden + "','" + codigo + "','" + cuenta + "','" + concepto + "','" + 0 + "','" + 0 + "','" + valor + "')", Conectarbd);
                 }
+                abrir();
                 cmd.ExecuteNonQuery();
                 cerrar();
             }
@@ -86,9 +86,9 @@ namespace RegistroDeTransacciones
         {
             try
             {              
-                libroDiario = new List<LibroDiario>();
+                libroDiario = new List<LibroDiario>();              
+                cmd = new MySqlCommand("select * from LibroDiario order by asiento, orden", Conectarbd);
                 abrir();
-                cmd = new SqlCommand("select * from LibroDiario order by asiento, orden", Conectarbd);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -123,8 +123,10 @@ namespace RegistroDeTransacciones
                 double movimientoAcreedor = 0;
                 double saldoDeudor = 0;
                 double saldoAcreedor = 0;
+                
+                Conectarbd = new MySqlConnection(cadena);
+                cmd = new MySqlCommand(" select codigo, cuenta,  sum(debe) as deudor, sum(haber) as acreedor  from LibroDiario Group by codigo, cuenta Order by codigo", Conectarbd);
                 abrir();
-                cmd = new SqlCommand(" select codigo, cuenta,  sum(debe) as deudor, sum(haber) as acreedor  from LibroDiario Group by codigo, cuenta Order by codigo", Conectarbd);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -179,7 +181,7 @@ namespace RegistroDeTransacciones
                 double saldo = 0;
                 int acesso = 0;
                 abrir();
-                cmd = new SqlCommand("select fecha, codigo, cuenta, concepto, debe, haber from LibroDiario Order by codigo, cuenta , asiento", Conectarbd);
+                cmd = new MySqlCommand("select fecha, codigo, cuenta, concepto, debe, haber from LibroDiario Order by codigo, cuenta , asiento", Conectarbd);
                 dr = cmd.ExecuteReader();
 
                 while (dr.Read())
@@ -267,7 +269,7 @@ namespace RegistroDeTransacciones
             {
                 lCatalogo = new List<CatalogoDeCuentas>();
                 abrir();
-                cmd = new SqlCommand("select * from catalogo_cuenta order by codigo", Conectarbd);
+                cmd = new MySqlCommand("select * from catalogo_cuenta order by codigo", Conectarbd);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -293,10 +295,10 @@ namespace RegistroDeTransacciones
         {
             string salida = "Empresa Agregada Con Exito";
             try
-            {
-                abrir();
-                cmd = new SqlCommand("Insert into empresa (nEmpresa, nitEmpresa, razonSocial, email, usuario, contra) " +
+            {          
+                cmd = new MySqlCommand("Insert into empresa (nEmpresa, nitEmpresa, razonSocial, email, usuario, contra) " +
                 "values('" + empresa + "','" + nit + "','" + razonSocial + "','" + email + "','" + usuario + "','" + contra + "')", Conectarbd);
+                abrir();
                 cmd.ExecuteNonQuery();
                 cerrar();
             }
@@ -313,9 +315,9 @@ namespace RegistroDeTransacciones
         {
             string salida = "Empresa Modificada Con Exito";
             try
-            {
+            {            
+                cmd = new MySqlCommand("Update empresa set nEmpresa= '" + empresa + "', nitEmpresa= '" + nit + "', razonSocial= '" + razonSocial + "', email= '" + email + "', usuario= '" + usuario + "', contra= '" + contra + "'", Conectarbd);
                 abrir();
-                cmd = new SqlCommand("Update empresa set nEmpresa= '" + empresa + "', nitEmpresa= '" + nit + "', razonSocial= '" + razonSocial + "', email= '" + email + "', usuario= '" + usuario + "', contra= '" + contra + "'", Conectarbd);
                 cmd.ExecuteNonQuery();
                 cerrar();
             }
@@ -332,8 +334,10 @@ namespace RegistroDeTransacciones
             int contador=0;
             try
             {               
+                
+                Conectarbd = new MySqlConnection(cadena);
+                cmd = new MySqlCommand("select * from empresa", Conectarbd);
                 abrir();
-                cmd = new SqlCommand("select * from empresa", Conectarbd);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -354,8 +358,10 @@ namespace RegistroDeTransacciones
             int validar = 0;
             try
             {
+               
+                Conectarbd = new MySqlConnection(cadena);
+                cmd = new MySqlCommand("select usuario, contra from empresa", Conectarbd);
                 abrir();
-                cmd = new SqlCommand("select usuario, contra from empresa", Conectarbd);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -381,9 +387,9 @@ namespace RegistroDeTransacciones
             try
             {
                 abrir();
-                cmd = new SqlCommand("DELETE FROM empresa", Conectarbd);
+                cmd = new MySqlCommand("DELETE FROM empresa", Conectarbd);
                 cmd.ExecuteNonQuery();
-                cmd = new SqlCommand("DELETE FROM LibroDiario", Conectarbd);
+                cmd = new MySqlCommand("DELETE FROM LibroDiario", Conectarbd);
                 cmd.ExecuteNonQuery();
                 cerrar();
             }
@@ -401,8 +407,9 @@ namespace RegistroDeTransacciones
             string salida = "Asiento Eliminado";
             try
             {
+               
+                cmd = new MySqlCommand("DELETE FROM LibroDiario WHERE asiento = '" + asiento + "' and orden= '" + orden + "'", Conectarbd);
                 abrir();
-                cmd = new SqlCommand("DELETE FROM LibroDiario WHERE asiento = '" + asiento + "' and orden= '" + orden + "'", Conectarbd); 
                 cmd.ExecuteNonQuery();
                 cerrar();
             }
@@ -419,8 +426,9 @@ namespace RegistroDeTransacciones
             try
             {
                 oEmpresa = new Empresa();
+                
+                cmd = new MySqlCommand("select * from empresa", Conectarbd);
                 abrir();
-                cmd = new SqlCommand("select * from empresa", Conectarbd);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
@@ -447,9 +455,10 @@ namespace RegistroDeTransacciones
             string salida = "Asiento Insertado Con Exito";
             try
             {
-                abrir();
-                cmd = new SqlCommand("Insert into catalogo_cuenta (naturaleza, codigo, cuenta) " +
+                
+                cmd = new MySqlCommand("Insert into catalogo_cuenta (naturaleza, codigo, cuenta) " +
                 "values('" + naturaleza + "','" + codigo + "','" + cuenta + "')", Conectarbd);
+                abrir();
                 cmd.ExecuteNonQuery();
                 cerrar();
             }
@@ -467,8 +476,9 @@ namespace RegistroDeTransacciones
             string salida = "Cuenta Eliminado";
             try
             {
+                
+                cmd = new MySqlCommand("DELETE FROM catalogo_cuenta WHERE codigo = '" + codigo + "' and cuenta= '" + cuenta + "'", Conectarbd);
                 abrir();
-                cmd = new SqlCommand("DELETE FROM catalogo_cuenta WHERE codigo = '" + codigo + "' and cuenta= '" + cuenta + "'", Conectarbd);
                 cmd.ExecuteNonQuery();
                 cerrar();
             }

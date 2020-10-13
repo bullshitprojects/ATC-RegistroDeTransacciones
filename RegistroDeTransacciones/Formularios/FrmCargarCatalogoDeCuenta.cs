@@ -37,6 +37,7 @@ namespace RegistroDeTransacciones
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Form1.f1.txtConcepto.Focus();
             this.Close();
         }
 
