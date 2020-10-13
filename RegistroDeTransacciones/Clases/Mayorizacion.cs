@@ -18,6 +18,18 @@ namespace RegistroDeTransacciones
         private string haber;
         private string saldo;
 
+        //constructor 
+        public Mayorizacion()
+        {
+            Fecha = "";
+            Concepto = "";
+            Codigo = "";
+            Cuenta = "";
+            Parcial = "";
+            Debe = "";
+            Haber = "";
+            Saldo = "";
+        }
         // Metodos de Acceso Get y Set
         public string Fecha
         {
