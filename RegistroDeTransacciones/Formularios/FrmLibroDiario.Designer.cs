@@ -30,10 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.deducciones = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -43,7 +45,6 @@
             this.txtOrden = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtFecha = new System.Windows.Forms.TextBox();
             this.txtAsiento = new System.Windows.Forms.NumericUpDown();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,7 +60,7 @@
             this.txtCuenta = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.libroDiarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button5 = new System.Windows.Forms.Button();
+            this.txtFecha = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -96,6 +97,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -112,6 +115,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(55, 229);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1097, 506);
@@ -133,6 +137,23 @@
             this.deducciones.Size = new System.Drawing.Size(1165, 49);
             this.deducciones.TabIndex = 32;
             // 
+            // button5
+            // 
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.Location = new System.Drawing.Point(317, 9);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(141, 29);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "Eliminar Asiento";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // button4
             // 
             this.button4.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -145,7 +166,7 @@
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(146, 29);
-            this.button4.TabIndex = 51;
+            this.button4.TabIndex = 7;
             this.button4.Text = "Cargar Cuenta";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
@@ -162,7 +183,7 @@
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(192, 29);
-            this.button2.TabIndex = 47;
+            this.button2.TabIndex = 10;
             this.button2.Text = "Imprimir Libro Diario";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -179,7 +200,7 @@
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(287, 29);
-            this.button3.TabIndex = 46;
+            this.button3.TabIndex = 12;
             this.button3.Text = "Generar Balance de Comprobación";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -196,7 +217,7 @@
             this.btnGenerarBoleta.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerarBoleta.Name = "btnGenerarBoleta";
             this.btnGenerarBoleta.Size = new System.Drawing.Size(197, 29);
-            this.btnGenerarBoleta.TabIndex = 26;
+            this.btnGenerarBoleta.TabIndex = 11;
             this.btnGenerarBoleta.Text = "Generar Mayorización";
             this.btnGenerarBoleta.UseVisualStyleBackColor = false;
             this.btnGenerarBoleta.Click += new System.EventHandler(this.btnGenerarBoleta_Click);
@@ -213,17 +234,17 @@
             this.btnCalcularSalario.Margin = new System.Windows.Forms.Padding(2);
             this.btnCalcularSalario.Name = "btnCalcularSalario";
             this.btnCalcularSalario.Size = new System.Drawing.Size(141, 29);
-            this.btnCalcularSalario.TabIndex = 13;
+            this.btnCalcularSalario.TabIndex = 8;
             this.btnCalcularSalario.Text = "Agregar Asiento";
             this.btnCalcularSalario.UseVisualStyleBackColor = false;
             this.btnCalcularSalario.Click += new System.EventHandler(this.btnCalcularSalario_Click_1);
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.txtFecha);
             this.panel4.Controls.Add(this.txtOrden);
             this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.txtFecha);
             this.panel4.Controls.Add(this.txtAsiento);
             this.panel4.Controls.Add(this.txtValor);
             this.panel4.Controls.Add(this.label1);
@@ -249,9 +270,19 @@
             // txtOrden
             // 
             this.txtOrden.Location = new System.Drawing.Point(453, 121);
+            this.txtOrden.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtOrden.Name = "txtOrden";
             this.txtOrden.Size = new System.Drawing.Size(32, 23);
-            this.txtOrden.TabIndex = 52;
+            this.txtOrden.TabIndex = 4;
+            this.txtOrden.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // button1
             // 
@@ -265,7 +296,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(136, 29);
-            this.button1.TabIndex = 44;
+            this.button1.TabIndex = 13;
             this.button1.Text = "Cerrar Módulo";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -282,22 +313,22 @@
             this.label3.TabIndex = 51;
             this.label3.Text = "Orden:";
             // 
-            // txtFecha
-            // 
-            this.txtFecha.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtFecha.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFecha.Location = new System.Drawing.Point(142, 117);
-            this.txtFecha.Margin = new System.Windows.Forms.Padding(2);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(117, 25);
-            this.txtFecha.TabIndex = 50;
-            // 
             // txtAsiento
             // 
             this.txtAsiento.Location = new System.Drawing.Point(346, 121);
+            this.txtAsiento.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtAsiento.Name = "txtAsiento";
             this.txtAsiento.Size = new System.Drawing.Size(32, 23);
-            this.txtAsiento.TabIndex = 49;
+            this.txtAsiento.TabIndex = 3;
+            this.txtAsiento.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // txtValor
             // 
@@ -307,7 +338,7 @@
             this.txtValor.Margin = new System.Windows.Forms.Padding(2);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(117, 25);
-            this.txtValor.TabIndex = 44;
+            this.txtValor.TabIndex = 6;
             // 
             // label1
             // 
@@ -346,7 +377,7 @@
             this.txtNaturaleza.Margin = new System.Windows.Forms.Padding(2);
             this.txtNaturaleza.Name = "txtNaturaleza";
             this.txtNaturaleza.Size = new System.Drawing.Size(122, 27);
-            this.txtNaturaleza.TabIndex = 38;
+            this.txtNaturaleza.TabIndex = 5;
             // 
             // label14
             // 
@@ -404,7 +435,7 @@
             this.txtConcepto.Margin = new System.Windows.Forms.Padding(2);
             this.txtConcepto.Name = "txtConcepto";
             this.txtConcepto.Size = new System.Drawing.Size(345, 25);
-            this.txtConcepto.TabIndex = 33;
+            this.txtConcepto.TabIndex = 1;
             // 
             // label2
             // 
@@ -456,22 +487,12 @@
             // 
             this.libroDiarioBindingSource.DataMember = "LibroDiario";
             // 
-            // button5
+            // txtFecha
             // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(317, 9);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(141, 29);
-            this.button5.TabIndex = 52;
-            this.button5.Text = "Eliminar Asiento";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.txtFecha.Location = new System.Drawing.Point(108, 119);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(158, 23);
+            this.txtFecha.TabIndex = 2;
             // 
             // Form1
             // 
@@ -480,6 +501,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1187, 747);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -508,7 +530,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.NumericUpDown txtOrden;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.NumericUpDown txtAsiento;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label1;
@@ -527,5 +548,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DateTimePicker txtFecha;
     }
 }

@@ -21,14 +21,14 @@ namespace RegistroDeTransacciones
         //constructor 
         public Mayorizacion()
         {
-            Fecha = "";
-            Concepto = "";
-            Codigo = "";
-            Cuenta = "";
-            Parcial = "";
-            Debe = "";
-            Haber = "";
-            Saldo = "";
+            Fecha = "\n ";
+            Concepto = "\n ";
+            Codigo = "\n ";
+            Cuenta = "\n ";
+            Parcial = "\n ";
+            Debe = "\n ";
+            Haber = "\n ";
+            Saldo = "\n ";
         }
         // Metodos de Acceso Get y Set
         public string Fecha

@@ -87,11 +87,11 @@ namespace RegistroDeTransacciones.Reportes
                             tabla.AddCell(content);
                             content = new Cell(1, 1).Add(new Paragraph(lista[i].Parcial)).AddStyle(mainStyles[102]);
                             tabla.AddCell(content);
-                            content = new Cell(1, 1).Add(new Paragraph("$ " + lista[i].Debe)).AddStyle(mainStyles[102]);
+                            content = new Cell(1, 1).Add(new Paragraph(lista[i].Debe)).AddStyle(mainStyles[102]);
                             tabla.AddCell(content);
-                            content = new Cell(1, 1).Add(new Paragraph("$ " + lista[i].Haber)).AddStyle(mainStyles[102]);
+                            content = new Cell(1, 1).Add(new Paragraph(lista[i].Haber)).AddStyle(mainStyles[102]);
                             tabla.AddCell(content);
-                            content = new Cell(1, 1).Add(new Paragraph("$ " + lista[i].Saldo)).AddStyle(mainStyles[102]);
+                            content = new Cell(1, 1).Add(new Paragraph( lista[i].Saldo)).AddStyle(mainStyles[102]);
                             tabla.AddCell(content);
                         }
                         else
@@ -106,11 +106,11 @@ namespace RegistroDeTransacciones.Reportes
                             tabla.AddCell(content);
                             content = new Cell(1, 1).Add(new Paragraph(lista[i].Parcial)).AddStyle(mainStyles[101]);
                             tabla.AddCell(content);
-                            content = new Cell(1, 1).Add(new Paragraph("$ " + lista[i].Debe)).AddStyle(mainStyles[101]);
+                            content = new Cell(1, 1).Add(new Paragraph(lista[i].Debe)).AddStyle(mainStyles[101]);
                             tabla.AddCell(content);
-                            content = new Cell(1, 1).Add(new Paragraph("$ " + lista[i].Haber)).AddStyle(mainStyles[101]);
+                            content = new Cell(1, 1).Add(new Paragraph(lista[i].Haber)).AddStyle(mainStyles[101]);
                             tabla.AddCell(content);
-                            content = new Cell(1, 1).Add(new Paragraph("$ " + lista[i].Saldo)).AddStyle(mainStyles[101]);
+                            content = new Cell(1, 1).Add(new Paragraph(lista[i].Saldo)).AddStyle(mainStyles[101]);
                             tabla.AddCell(content);
                         }
                     }

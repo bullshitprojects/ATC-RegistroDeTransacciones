@@ -20,6 +20,7 @@ namespace SistemaDePagoEmpleados
         {
             InitializeComponent();
             CargarDatos();
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -44,6 +45,11 @@ namespace SistemaDePagoEmpleados
             txtEmail.Text = oEmpresa.Email;
             txtUser.Text = oEmpresa.Usuario;
             txtContra.Text = oEmpresa.Contra;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

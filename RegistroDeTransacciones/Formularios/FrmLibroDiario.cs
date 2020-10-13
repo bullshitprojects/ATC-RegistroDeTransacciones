@@ -82,7 +82,7 @@ namespace SistemaDePagoEmpleados
 
         private void btnCalcularSalario_Click_1(object sender, EventArgs e)
         {
-            conexion.InsertarAsiento(txtCod.Text, txtCuenta.Text, txtConcepto.Text, txtFecha.Text, Convert.ToString(txtAsiento.Value), Convert.ToString(txtOrden.Value), txtNaturaleza.SelectedItem.ToString(), Convert.ToDouble(txtValor.Text));        
+            conexion.InsertarAsiento(txtCod.Text, txtCuenta.Text, txtConcepto.Text, txtFecha.Value.ToShortDateString(), Convert.ToString(txtAsiento.Value), Convert.ToString(txtOrden.Value), txtNaturaleza.SelectedItem.ToString(), Convert.ToDouble(txtValor.Text));        
             CrearAsiento();
             Limpiar();
         }
@@ -91,6 +91,7 @@ namespace SistemaDePagoEmpleados
         {
             FrmCargarCatalogoDeCuenta F = new FrmCargarCatalogoDeCuenta();
             F.Show();
+            txtConcepto.Focus();
         }
 
         private void button3_Click(object sender, EventArgs e)

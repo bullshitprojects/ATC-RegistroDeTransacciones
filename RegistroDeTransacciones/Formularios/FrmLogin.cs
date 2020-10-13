@@ -17,6 +17,7 @@ namespace RegistroDeTransacciones.Formularios
         public FrmLogin()
         {
             InitializeComponent();
+            txtUser.Focus();
             if (conexion.ConsultarEmpresa()==0)
             {
                 label5.Enabled = true;
@@ -49,6 +50,26 @@ namespace RegistroDeTransacciones.Formularios
             F.Show();
         }
 
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        private void txtContra_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                if (conexion.Login(txtUser.Text, txtContra.Text) == 1)
+                {
+                    FormPrincipal F = new FormPrincipal();
+                    F.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o Contraseña Invalida\nRevisa tus credenciales o contacta al administrador del sistema", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
