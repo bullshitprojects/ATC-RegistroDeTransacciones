@@ -28,7 +28,6 @@ namespace RegistroDeTransacciones.Formularios
            
             try
             {
-                lMayorizacion = conexion.Mayorizacion();
                 MayorizacionDoc doc = new MayorizacionDoc();
                 doc.PrintDocument(lMayorizacion);
                 MessageBox.Show("Archivo guardado con éxito en: " + doc.path, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
