@@ -269,14 +269,14 @@
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(108, 119);
+            this.txtFecha.Location = new System.Drawing.Point(362, 120);
             this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(158, 23);
+            this.txtFecha.Size = new System.Drawing.Size(193, 23);
             this.txtFecha.TabIndex = 2;
             // 
             // txtOrden
             // 
-            this.txtOrden.Location = new System.Drawing.Point(453, 121);
+            this.txtOrden.Location = new System.Drawing.Point(787, 121);
             this.txtOrden.Minimum = new decimal(new int[] {
             1,
             0,
@@ -313,7 +313,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(396, 123);
+            this.label3.Location = new System.Drawing.Point(730, 123);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 17);
@@ -322,7 +322,7 @@
             // 
             // txtAsiento
             // 
-            this.txtAsiento.Location = new System.Drawing.Point(346, 121);
+            this.txtAsiento.Location = new System.Drawing.Point(661, 121);
             this.txtAsiento.Minimum = new decimal(new int[] {
             1,
             0,
@@ -341,7 +341,7 @@
             // 
             this.txtValor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtValor.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValor.Location = new System.Drawing.Point(807, 117);
+            this.txtValor.Location = new System.Drawing.Point(911, 120);
             this.txtValor.Margin = new System.Windows.Forms.Padding(2);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(117, 25);
@@ -352,7 +352,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(724, 123);
+            this.label1.Location = new System.Drawing.Point(849, 125);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 17);
@@ -380,10 +380,10 @@
             "Parcial",
             "Debe",
             "Haber"});
-            this.txtNaturaleza.Location = new System.Drawing.Point(585, 117);
+            this.txtNaturaleza.Location = new System.Drawing.Point(145, 116);
             this.txtNaturaleza.Margin = new System.Windows.Forms.Padding(2);
             this.txtNaturaleza.Name = "txtNaturaleza";
-            this.txtNaturaleza.Size = new System.Drawing.Size(122, 27);
+            this.txtNaturaleza.Size = new System.Drawing.Size(116, 27);
             this.txtNaturaleza.TabIndex = 5;
             // 
             // label14
@@ -391,7 +391,7 @@
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(498, 123);
+            this.label14.Location = new System.Drawing.Point(52, 121);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(83, 17);
@@ -403,7 +403,7 @@
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(281, 123);
+            this.label13.Location = new System.Drawing.Point(597, 123);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(59, 17);
@@ -449,7 +449,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(52, 123);
+            this.label2.Location = new System.Drawing.Point(279, 121);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 17);
@@ -464,7 +464,7 @@
             this.txtCod.Location = new System.Drawing.Point(145, 68);
             this.txtCod.Margin = new System.Windows.Forms.Padding(2);
             this.txtCod.Name = "txtCod";
-            this.txtCod.Size = new System.Drawing.Size(104, 25);
+            this.txtCod.Size = new System.Drawing.Size(116, 25);
             this.txtCod.TabIndex = 28;
             // 
             // txtCuenta

@@ -83,9 +83,18 @@ namespace SistemaDePagoEmpleados
 
         private void btnCalcularSalario_Click_1(object sender, EventArgs e)
         {
-            conexion.InsertarAsiento(txtCod.Text, txtCuenta.Text, txtConcepto.Text, txtFecha.Value.ToShortDateString(), Convert.ToString(txtAsiento.Value), Convert.ToString(txtOrden.Value), txtNaturaleza.SelectedItem.ToString(), Convert.ToDouble(txtValor.Text));        
-            CrearAsiento();
-            Limpiar();
+            try
+            {
+                conexion.InsertarAsiento(txtCod.Text, txtCuenta.Text, txtConcepto.Text, txtFecha.Value.ToShortDateString(), Convert.ToString(txtAsiento.Value), Convert.ToString(txtOrden.Value), txtNaturaleza.SelectedItem.ToString(), Convert.ToDouble(txtValor.Text));
+                CrearAsiento();
+                Limpiar();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         private void button4_Click_1(object sender, EventArgs e)

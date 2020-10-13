@@ -42,8 +42,17 @@ namespace SistemaDePagoEmpleados
 
         private void button1_Click(object sender, EventArgs e)
         {
-            conexion.InsertarCuenta(txtCodigo.Text, txtCuenta.Text, txtNaturaleza.Text);
-            CargarTabla();
+            try
+            {
+                conexion.InsertarCuenta(txtCodigo.Text, txtCuenta.Text, txtNaturaleza.Text);
+                CargarTabla();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public void CargarTabla()
