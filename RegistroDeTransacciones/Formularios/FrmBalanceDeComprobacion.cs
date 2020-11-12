@@ -15,7 +15,7 @@ namespace RegistroDeTransacciones
     public partial class FrmBalanceDeComprobacion : Form
     {
         List<BalanceDeComprobacion> lBalance = new List<BalanceDeComprobacion>();
-        Conexionbd conexion = new Conexionbd();
+        BalanceDeComprobacion oBalance;
 
         public FrmBalanceDeComprobacion()
         {
@@ -28,7 +28,8 @@ namespace RegistroDeTransacciones
            
             try
             {
-                lBalance = conexion.BalanceDeComprobacion();
+                oBalance = new BalanceDeComprobacion();
+                lBalance = oBalance.getBalanceDeComprobacion();
                 BalancedeComprobacionDoc doc = new BalancedeComprobacionDoc();
                 doc.PrintDocument(lBalance);
                 MessageBox.Show("Archivo guardado con éxito en: " + doc.path, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -44,7 +45,8 @@ namespace RegistroDeTransacciones
 
         public void CargarTabla()
         {
-            lBalance = conexion.BalanceDeComprobacion();
+            oBalance = new BalanceDeComprobacion();
+            lBalance = oBalance.getBalanceDeComprobacion();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = lBalance;
             dataGridView1.Visible = true;

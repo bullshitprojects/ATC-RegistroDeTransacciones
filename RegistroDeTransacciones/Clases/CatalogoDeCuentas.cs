@@ -1,8 +1,11 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using RegistroDeTransacciones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SistemaDePagoEmpleados
 {
@@ -13,9 +16,12 @@ namespace SistemaDePagoEmpleados
         private string codigo;
         private string cuenta;
         private string naturaleza;
-
-
-
+        private MySqlCommand command;
+        private List<CatalogoDeCuentas> lCatalogo;
+        private StringBuilder query = new StringBuilder();
+        private Conexionbd connect;
+        private MySqlDataReader reader;
+        private CatalogoDeCuentas oCatalogo;
         // Metodos de Acceso Get y Set
 
         public string Codigo
@@ -36,34 +42,76 @@ namespace SistemaDePagoEmpleados
             set { naturaleza = value; }
         }
 
-        
+
 
         // Metodo de obtencion de Catalogo de cuenta
-
-        public List<CatalogoDeCuentas> CatalogoCC()
+        public List<CatalogoDeCuentas> CargarCatalogoDeCuentas()
         {
-            List<CatalogoDeCuentas> catalogoDeCuentas = new List<CatalogoDeCuentas>();
-            CatalogoDeCuentas Ln = new CatalogoDeCuentas();
-            Ln.Codigo = "1101";
-            Ln.Cuenta = "EFECTIVO Y EQUIVALENTES DE EFECTIVO";
-            Ln.Naturaleza = "Debe";
-            catalogoDeCuentas.Add(Ln);
-            Ln = new CatalogoDeCuentas();
-            Ln.Codigo = "1102";
-            Ln.Cuenta = "INVERSIONES A CORTO PLAZO ";
-            Ln.Naturaleza = "Debe";
-            catalogoDeCuentas.Add(Ln);
-            Ln = new CatalogoDeCuentas();
-            Ln.Codigo = "1103";
-            Ln.Cuenta = "EFECTIVO Y EQUIVALENTES DE EFECTIVO";
-            Ln.Naturaleza = "Haber";
-            catalogoDeCuentas.Add(Ln);
-            Ln = new CatalogoDeCuentas();
-            Ln.Codigo = "1104";
-            Ln.Cuenta = "INVERSIONES A CORTO PLAZO ";
-            Ln.Naturaleza = "Haber";
-            catalogoDeCuentas.Add(Ln);
-            return catalogoDeCuentas;
+            try
+            {
+                lCatalogo = new List<CatalogoDeCuentas>();
+                query.Append("SELECT * FROM catalogo_cuenta ORDER BY codigo");
+                connect = new Conexionbd();
+                connect.openCon();
+                command = new MySqlCommand(query.ToString(), connect.Conectarbd);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    oCatalogo = new CatalogoDeCuentas();
+                    oCatalogo.Naturaleza = reader.GetString(1);
+                    oCatalogo.Codigo = reader.GetString(2);
+                    oCatalogo.Cuenta = reader.GetString(3);
+                    lCatalogo.Add(oCatalogo);
+                }
+                connect.closeCon();
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo consultar bien: " + ex.ToString());
+            }
+            return lCatalogo;
         }
+
+
+        //Metodo para Agregar una cuenta
+        public string InsertarCuenta(string codigo, string cuenta, string naturaleza)
+        {
+            string salida = "Asiento Insertado Con Exito";
+            try
+            {
+                query.Append("INSERT INTO catalogo_cuenta (naturaleza, codigo, cuenta) VALUES ('")
+                    .Append(naturaleza).Append("', '").Append(codigo).Append("', '").Append(cuenta).Append("')");
+                connect = new Conexionbd();
+                connect.executeQuery(query.ToString());
+
+            }
+            catch (Exception ex)
+            {
+                salida = "No se conecto: " + ex.ToString();
+               
+            }
+            return salida;
+        }
+
+
+        public string EliminarCuenta(string codigo, string cuenta)
+        {
+            string salida = "Cuenta Eliminado";
+            try
+            {
+                query.Append("DELETE FROM catalogo_cuenta  WHERE codigo = '")
+                    .Append(codigo).Append("' AND cuenta = '").Append(cuenta).Append("'");
+                connect = new Conexionbd();
+                connect.executeQuery(query.ToString());
+            }
+            catch (Exception ex)
+            {
+                salida = "No se conecto: " + ex.ToString();
+            }
+            return salida;
+        }
+
     }
 }

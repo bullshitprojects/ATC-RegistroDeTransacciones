@@ -14,8 +14,7 @@ namespace SistemaDePagoEmpleados
 {
     public partial class Form2 : Form
     {
-        Conexionbd conexion = new Conexionbd();
-        Empresa oEmpresa = new Empresa();
+        Empresa oEmpresa;
         public Form2()
         {
             InitializeComponent();
@@ -25,20 +24,23 @@ namespace SistemaDePagoEmpleados
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string Mensaje = conexion.EliminarEmpresa();
+            oEmpresa = new Empresa();
+            string Mensaje = oEmpresa.EliminarEmpresa();
             MessageBox.Show(Mensaje);
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string Mensaje = conexion.ModificarEmpresa(txtNombre.Text, txtNit.Text, txtRazonSocial.Text, txtEmail.Text, txtUser.Text, txtContra.Text);
+            oEmpresa = new Empresa();
+            string Mensaje = oEmpresa.ModificarEmpresa(txtNombre.Text, txtNit.Text, txtRazonSocial.Text, txtEmail.Text, txtUser.Text, txtContra.Text);
             MessageBox.Show(Mensaje);
             this.Close();
         }
 
         public void CargarDatos() {
-            oEmpresa = conexion.CargarEmpresa();
+            oEmpresa = new Empresa();
+            oEmpresa = oEmpresa.CargarEmpresa();
             txtNombre.Text = oEmpresa.NEmpresa;
             txtNit.Text = oEmpresa.NitEmpresa;
             txtRazonSocial.Text = oEmpresa.RazonSocial;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RegistroDeTransacciones.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace RegistroDeTransacciones.Formularios
 {
     public partial class FrmAgregarEmpresa : Form
     {
-        Conexionbd conexion = new Conexionbd();
+        Empresa empresa = new Empresa();
         public FrmAgregarEmpresa()
         {
             InitializeComponent();
@@ -21,8 +22,8 @@ namespace RegistroDeTransacciones.Formularios
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string Mensaje = conexion.AgregarEmpresa(txtNombre.Text, txtNit.Text, txtRazonSocial.Text, txttEmail.Text, txtUser.Text, txtContra.Text);
-            MessageBox.Show(Mensaje);
+            string Mensaje = empresa.AgregarEmpresa(txtNombre.Text, txtNit.Text, txtRazonSocial.Text, txttEmail.Text, txtUser.Text, txtContra.Text);
+            MessageBox.Show(Mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 
@@ -45,10 +46,15 @@ namespace RegistroDeTransacciones.Formularios
         {
             if (e.KeyCode==Keys.Enter)
             {
-                string Mensaje = conexion.AgregarEmpresa(txtNombre.Text, txtNit.Text, txtRazonSocial.Text, txttEmail.Text, txtUser.Text, txtContra.Text);
+                string Mensaje = empresa.AgregarEmpresa(txtNombre.Text, txtNit.Text, txtRazonSocial.Text, txttEmail.Text, txtUser.Text, txtContra.Text);
                 MessageBox.Show(Mensaje);
                 this.Close();
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

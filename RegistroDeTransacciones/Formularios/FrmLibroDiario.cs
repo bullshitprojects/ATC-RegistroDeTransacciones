@@ -15,8 +15,7 @@ namespace SistemaDePagoEmpleados
 {
     public partial class Form1 : Form
     {
-        LibroDiario Transaccion = new LibroDiario();
-        Conexionbd conexion = new Conexionbd();
+        LibroDiario Transaccion;
         List<LibroDiario> libroDiario = new List<LibroDiario>();
         public static Form1 f1;
 
@@ -74,7 +73,8 @@ namespace SistemaDePagoEmpleados
 
         public void CargarTabla()
         {
-            libroDiario= conexion.CargarLibroDiario();
+            Transaccion = new LibroDiario();
+            libroDiario= Transaccion.CargarLibroDiario();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = libroDiario;
             dataGridView1.Visible = true;
@@ -85,7 +85,8 @@ namespace SistemaDePagoEmpleados
         {
             try
             {
-                conexion.InsertarAsiento(txtCod.Text, txtCuenta.Text, txtConcepto.Text, txtFecha.Value.ToShortDateString(), Convert.ToString(txtAsiento.Value), Convert.ToString(txtOrden.Value), txtNaturaleza.SelectedItem.ToString(), Convert.ToDouble(txtValor.Text));
+                Transaccion = new LibroDiario();
+                Transaccion.InsertarAsiento(txtCod.Text, txtCuenta.Text, txtConcepto.Text, txtFecha.Value.ToShortDateString(), Convert.ToString(txtAsiento.Value), Convert.ToString(txtOrden.Value), txtNaturaleza.SelectedItem.ToString(), Convert.ToDouble(txtValor.Text));
                 CrearAsiento();
                 Limpiar();
             }
@@ -158,7 +159,8 @@ namespace SistemaDePagoEmpleados
         {
             try
             {
-                conexion.EliminarAsiento(DataGridViewUtils.GetValorCelda(dataGridView1, 1), DataGridViewUtils.GetValorCelda(dataGridView1, 2));
+                Transaccion = new LibroDiario();
+                Transaccion.EliminarAsiento(DataGridViewUtils.GetValorCelda(dataGridView1, 1), DataGridViewUtils.GetValorCelda(dataGridView1, 2));
                 MessageBox.Show("Asiento Contable Eliminado Con Exito");
                 CargarTabla();
             }

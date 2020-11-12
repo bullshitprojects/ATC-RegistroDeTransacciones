@@ -14,7 +14,7 @@ namespace RegistroDeTransacciones
     public partial class FrmCargarCatalogoDeCuenta : Form
     {
         List<CatalogoDeCuentas> lCatalogo = new List<CatalogoDeCuentas>();
-        Conexionbd conexion = new Conexionbd();
+        CatalogoDeCuentas oCatalogo;
 
         public FrmCargarCatalogoDeCuenta()
         {
@@ -29,7 +29,8 @@ namespace RegistroDeTransacciones
 
         public void CargarTabla()
         {
-            lCatalogo = conexion.CargarCatalogoDeCuentas();
+            oCatalogo = new CatalogoDeCuentas();
+            lCatalogo = oCatalogo.CargarCatalogoDeCuentas();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = lCatalogo;
             dataGridView1.Visible = true;

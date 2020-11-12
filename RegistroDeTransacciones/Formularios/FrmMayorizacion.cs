@@ -13,9 +13,8 @@ namespace RegistroDeTransacciones.Formularios
 {
     public partial class FrmMayorizacion : Form
     {
-
+        Mayorizacion oMayorizacion;
         List<Mayorizacion> lMayorizacion = new List<Mayorizacion>();
-        Conexionbd conexion = new Conexionbd();
 
         public FrmMayorizacion()
         {
@@ -41,7 +40,8 @@ namespace RegistroDeTransacciones.Formularios
 
         public void CargarTabla()
         {
-            lMayorizacion = conexion.Mayorizacion();
+            oMayorizacion = new Mayorizacion();
+            lMayorizacion = oMayorizacion.getMayorizacion();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = lMayorizacion;
             dataGridView1.Visible = true;

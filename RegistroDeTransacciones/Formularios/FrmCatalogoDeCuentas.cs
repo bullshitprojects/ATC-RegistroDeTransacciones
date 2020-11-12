@@ -15,7 +15,7 @@ namespace SistemaDePagoEmpleados
 {
     public partial class Form3 : Form
     {
-        Conexionbd conexion = new Conexionbd();
+        CatalogoDeCuentas oCatalogo;
         List<CatalogoDeCuentas> lCatalogo = new List<CatalogoDeCuentas>();
 
         public Form3()
@@ -29,7 +29,8 @@ namespace SistemaDePagoEmpleados
         {
             try
             {
-                conexion.EliminarCuenta(DataGridViewUtils.GetValorCelda(dataGridView1, 0), DataGridViewUtils.GetValorCelda(dataGridView1, 1));
+                oCatalogo = new CatalogoDeCuentas();
+                oCatalogo.EliminarCuenta(DataGridViewUtils.GetValorCelda(dataGridView1, 0), DataGridViewUtils.GetValorCelda(dataGridView1, 1));
                 MessageBox.Show("Cuenta Eliminada Con Exito");
                 CargarTabla();
             }
@@ -44,7 +45,8 @@ namespace SistemaDePagoEmpleados
         {
             try
             {
-                conexion.InsertarCuenta(txtCodigo.Text, txtCuenta.Text, txtNaturaleza.Text);
+                oCatalogo = new CatalogoDeCuentas();
+                oCatalogo.InsertarCuenta(txtCodigo.Text, txtCuenta.Text, txtNaturaleza.Text);
                 CargarTabla();
             }
             catch (Exception)
@@ -57,7 +59,8 @@ namespace SistemaDePagoEmpleados
 
         public void CargarTabla()
         {
-            lCatalogo = conexion.CargarCatalogoDeCuentas();
+            oCatalogo = new CatalogoDeCuentas();
+            lCatalogo = oCatalogo.CargarCatalogoDeCuentas();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = lCatalogo;
             dataGridView1.Visible = true;
