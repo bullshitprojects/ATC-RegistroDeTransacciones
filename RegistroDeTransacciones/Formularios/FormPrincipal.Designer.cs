@@ -276,7 +276,7 @@
             this.MinimumSize = new System.Drawing.Size(488, 325);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Sistema Registro de Transacciones";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.panelContenedor.ResumeLayout(false);
             this.panelformularios.ResumeLayout(false);

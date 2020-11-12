@@ -10,7 +10,6 @@ using SistemaDePagoEmpleados;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.InteropServices;
 
 namespace RegistroDeTransacciones.Reportes
 {
@@ -21,10 +20,9 @@ namespace RegistroDeTransacciones.Reportes
         public void PrintDocument(List<CatalogoDeCuentas> lista)
         {
             //FUENTES Y COLORES
-            iText.Kernel.Colors.Color navy = new DeviceRgb(44, 59, 84);
-            iText.Kernel.Colors.Color gray = new DeviceRgb(217, 217, 217);
+            Color navy = new DeviceRgb(44, 59, 84);
+            Color gray = new DeviceRgb(217, 217, 217);
             PdfFont normal = PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.HELVETICA);
-            PdfFont bold = PdfFontFactory.CreateFont(iText.IO.Font.Constants.StandardFonts.HELVETICA_BOLD);
             //ESTILOS
             Dictionary<int, Style> mainStyles = new Dictionary<int, Style>
              {
