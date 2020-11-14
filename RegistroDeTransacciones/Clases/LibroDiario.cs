@@ -93,15 +93,15 @@ namespace SistemaDePagoEmpleados
                 while (reader.Read())
                 {
                     LibroDiario Transaccion = new LibroDiario();
-                    Transaccion.Fecha = reader.GetString(1);
-                    Transaccion.Asiento = reader.GetString(2);
-                    Transaccion.Orden = reader.GetString(3);
-                    Transaccion.Codigo = reader.GetString(4);
-                    Transaccion.Cuenta = reader.GetString(5);
-                    Transaccion.Concepto = reader.GetString(6);
-                    Transaccion.Parcial = Convert.ToDouble(reader.GetValue(7).ToString());
-                    Transaccion.Debe = Convert.ToDouble(reader.GetValue(8).ToString());
-                    Transaccion.Haber = Convert.ToDouble(reader.GetValue(9).ToString());
+                    Transaccion.Fecha = reader.GetString(0);
+                    Transaccion.Asiento = reader.GetString(1);
+                    Transaccion.Orden = reader.GetString(2);
+                    Transaccion.Codigo = reader.GetString(3);
+                    Transaccion.Cuenta = reader.GetString(4);
+                    Transaccion.Concepto = reader.GetString(5);
+                    Transaccion.Parcial = Convert.ToDouble(reader.GetValue(6).ToString());
+                    Transaccion.Debe = Convert.ToDouble(reader.GetValue(7).ToString());
+                    Transaccion.Haber = Convert.ToDouble(reader.GetValue(8).ToString());
                     libroDiario.Add(Transaccion);
                 }
                 reader.Close();

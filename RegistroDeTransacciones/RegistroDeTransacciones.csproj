@@ -127,6 +127,12 @@
     </Compile>
     <Compile Include="Clases\CatalogoDeCuentas.cs" />
     <Compile Include="Clases\Conexionbd.cs" />
+    <Compile Include="Formularios\FrmEstadodeResultados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmEstadodeResultados.Designer.cs">
+      <DependentUpon>FrmEstadodeResultados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCargarCatalogoDeCuenta.resx">
       <DependentUpon>FrmCargarCatalogoDeCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmEstadodeResultados.resx">
+      <DependentUpon>FrmEstadodeResultados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmLibroDiario.resx">
       <DependentUpon>FrmLibroDiario.cs</DependentUpon>

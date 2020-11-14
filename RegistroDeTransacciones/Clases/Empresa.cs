@@ -115,11 +115,18 @@ namespace RegistroDeTransacciones.Clases
         //Metodo para Modificar Empresa
         public string ModificarEmpresa(string empresa, string nit, string razonSocial, string email, string usuario, string contra)
         {
-            string salida = "Empresa Modificada Con Exito";
+            string salida;
             connect = new Conexionbd();
             query.Append("UPDATE empresa SET nombre_empresa='").Append(empresa).Append("', nit_empresa='").Append(nit).Append("', razon_social = '").Append(razonSocial)
-                .Append("', email = '").Append(email).Append("' usuario ='").Append(usuario);
-
+                .Append("', email = '").Append(email).Append("', usuario ='").Append(usuario).Append("', contra='").Append(contra).Append("'");
+            if (connect.executeQuery(query.ToString()))
+            {
+                salida = "Empresa Modificada Con Exito";
+            }
+            else
+            {
+                salida = "Ocurrió un problema al intentar modificar la empresa: \n" + connect.getMessage() ;
+            }
             return salida;
         }
 

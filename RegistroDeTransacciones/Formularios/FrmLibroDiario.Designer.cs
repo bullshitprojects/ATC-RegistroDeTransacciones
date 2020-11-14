@@ -157,7 +157,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(663, 322);
+            this.button5.Location = new System.Drawing.Point(682, 384);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(146, 29);
@@ -189,7 +189,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(591, 412);
+            this.dataGridView1.Size = new System.Drawing.Size(623, 412);
             this.dataGridView1.TabIndex = 60;
             this.dataGridView1.Visible = false;
             // 
@@ -201,7 +201,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(663, 222);
+            this.button4.Location = new System.Drawing.Point(682, 333);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(146, 29);
@@ -326,9 +326,9 @@
             this.label1.Location = new System.Drawing.Point(708, 124);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(66, 17);
             this.label1.TabIndex = 45;
-            this.label1.Text = "Valor:";
+            this.label1.Text = "Valor ($):";
             // 
             // label36
             // 
@@ -430,7 +430,6 @@
             // txtCod
             // 
             this.txtCod.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtCod.Enabled = false;
             this.txtCod.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCod.Location = new System.Drawing.Point(11, 86);
             this.txtCod.Margin = new System.Windows.Forms.Padding(2);
@@ -441,7 +440,6 @@
             // txtCuenta
             // 
             this.txtCuenta.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtCuenta.Enabled = false;
             this.txtCuenta.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCuenta.Location = new System.Drawing.Point(146, 87);
             this.txtCuenta.Margin = new System.Windows.Forms.Padding(2);
@@ -469,7 +467,7 @@
             this.btnCalcularSalario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalcularSalario.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalcularSalario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCalcularSalario.Location = new System.Drawing.Point(663, 268);
+            this.btnCalcularSalario.Location = new System.Drawing.Point(682, 188);
             this.btnCalcularSalario.Margin = new System.Windows.Forms.Padding(2);
             this.btnCalcularSalario.Name = "btnCalcularSalario";
             this.btnCalcularSalario.Size = new System.Drawing.Size(146, 29);
