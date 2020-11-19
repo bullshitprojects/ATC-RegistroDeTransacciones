@@ -158,10 +158,9 @@ namespace SistemaDePagoEmpleados
                 MessageBox.Show("Asiento Contable Eliminado Con Exito");
                 CargarTabla();
             }
-            catch (Exception)
+            catch (Exception ee)
             {
-
-                throw;
+                MessageBox.Show("Ocurrió un erro al intentar eliminar el registro:\n" + ee.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -111,8 +111,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\AjusteIva.cs" />
     <Compile Include="Clases\BalanceDeComprobacion.cs" />
     <Compile Include="Clases\Empresa.cs" />
+    <Compile Include="Clases\InventarioFinal.cs" />
+    <Compile Include="Clases\iva.cs" />
     <Compile Include="Formularios\FrmAgregarEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
