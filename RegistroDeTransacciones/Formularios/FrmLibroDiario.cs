@@ -86,7 +86,6 @@ namespace SistemaDePagoEmpleados
             }
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -162,6 +161,29 @@ namespace SistemaDePagoEmpleados
             {
                 MessageBox.Show("Ocurrió un erro al intentar eliminar el registro:\n" + ee.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FrmBalanceGeneral F = new FrmBalanceGeneral();
+            F.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Transaccion = new LibroDiario();
+                Transaccion.EliminarTabla();
+                MessageBox.Show("Base de Datos Limpia");
+                CargarTabla();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
     }

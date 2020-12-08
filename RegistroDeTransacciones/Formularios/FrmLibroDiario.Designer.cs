@@ -33,6 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnGenerarBoleta = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@
             this.txtAsiento = new System.Windows.Forms.NumericUpDown();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCalcularSalario = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
             this.txtNaturaleza = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -58,8 +60,8 @@
             this.txtCod = new System.Windows.Forms.TextBox();
             this.txtCuenta = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnCalcularSalario = new System.Windows.Forms.Button();
             this.libroDiarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button7 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -83,20 +85,39 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button7);
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnGenerarBoleta);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.btnCalcularSalario);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.btnCalcularSalario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(839, 624);
             this.panel1.TabIndex = 16;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button6.Location = new System.Drawing.Point(639, 520);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(189, 57);
+            this.button6.TabIndex = 61;
+            this.button6.Text = "Generar Balance General";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button3
             // 
@@ -106,7 +127,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(639, 544);
+            this.button3.Location = new System.Drawing.Point(639, 441);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(189, 57);
@@ -123,7 +144,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(639, 443);
+            this.button2.Location = new System.Drawing.Point(639, 337);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(189, 29);
@@ -140,7 +161,7 @@
             this.btnGenerarBoleta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerarBoleta.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerarBoleta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGenerarBoleta.Location = new System.Drawing.Point(639, 494);
+            this.btnGenerarBoleta.Location = new System.Drawing.Point(639, 388);
             this.btnGenerarBoleta.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerarBoleta.Name = "btnGenerarBoleta";
             this.btnGenerarBoleta.Size = new System.Drawing.Size(189, 30);
@@ -157,10 +178,10 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(682, 384);
+            this.button5.Location = new System.Drawing.Point(639, 289);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(146, 29);
+            this.button5.Size = new System.Drawing.Size(189, 29);
             this.button5.TabIndex = 9;
             this.button5.Text = "Eliminar Asiento";
             this.button5.UseVisualStyleBackColor = false;
@@ -201,10 +222,10 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(682, 333);
+            this.button4.Location = new System.Drawing.Point(639, 200);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(146, 29);
+            this.button4.Size = new System.Drawing.Size(189, 29);
             this.button4.TabIndex = 7;
             this.button4.Text = "Cargar Cuenta";
             this.button4.UseVisualStyleBackColor = false;
@@ -329,6 +350,23 @@
             this.label1.Size = new System.Drawing.Size(66, 17);
             this.label1.TabIndex = 45;
             this.label1.Text = "Valor ($):";
+            // 
+            // btnCalcularSalario
+            // 
+            this.btnCalcularSalario.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCalcularSalario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.btnCalcularSalario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCalcularSalario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalcularSalario.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalcularSalario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCalcularSalario.Location = new System.Drawing.Point(639, 243);
+            this.btnCalcularSalario.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCalcularSalario.Name = "btnCalcularSalario";
+            this.btnCalcularSalario.Size = new System.Drawing.Size(189, 29);
+            this.btnCalcularSalario.TabIndex = 8;
+            this.btnCalcularSalario.Text = "Agregar Asiento";
+            this.btnCalcularSalario.UseVisualStyleBackColor = false;
+            this.btnCalcularSalario.Click += new System.EventHandler(this.btnCalcularSalario_Click_1);
             // 
             // label36
             // 
@@ -459,26 +497,26 @@
             this.label10.TabIndex = 29;
             this.label10.Text = "Cuenta:";
             // 
-            // btnCalcularSalario
-            // 
-            this.btnCalcularSalario.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCalcularSalario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.btnCalcularSalario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCalcularSalario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalcularSalario.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalcularSalario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCalcularSalario.Location = new System.Drawing.Point(682, 188);
-            this.btnCalcularSalario.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCalcularSalario.Name = "btnCalcularSalario";
-            this.btnCalcularSalario.Size = new System.Drawing.Size(146, 29);
-            this.btnCalcularSalario.TabIndex = 8;
-            this.btnCalcularSalario.Text = "Agregar Asiento";
-            this.btnCalcularSalario.UseVisualStyleBackColor = false;
-            this.btnCalcularSalario.Click += new System.EventHandler(this.btnCalcularSalario_Click_1);
-            // 
             // libroDiarioBindingSource
             // 
             this.libroDiarioBindingSource.DataMember = "LibroDiario";
+            // 
+            // button7
+            // 
+            this.button7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button7.Location = new System.Drawing.Point(639, 584);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(189, 29);
+            this.button7.TabIndex = 52;
+            this.button7.Text = "Limpiar Asientos";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Form1
             // 
@@ -533,5 +571,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DateTimePicker txtFecha;
         public System.Windows.Forms.TextBox txtConcepto;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }

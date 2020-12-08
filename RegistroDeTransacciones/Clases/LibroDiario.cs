@@ -173,6 +173,21 @@ namespace SistemaDePagoEmpleados
             return salida;
         }
 
-
+        public string EliminarTabla()
+        {
+            string salida = "Empresa y Todos sus registros fueron eliminados con exito";
+            try
+            {
+                connect = new Conexionbd();
+                query.Clear();
+                query.Append("DELETE FROM libro_diario");
+                connect.executeQuery(query.ToString());
+            }
+            catch (Exception ex)
+            {
+                salida = "Ocurrió un problema al eliminar los registros: \n" + ex.ToString();
+            }
+            return salida;
+        }
     }
 }

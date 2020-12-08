@@ -130,11 +130,7 @@ namespace SistemaDePagoEmpleados
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<FrmEstadodeResultados>();
-            button4.BackColor = Color.FromArgb(12, 61, 92);
-        }
+
 
 
 
@@ -173,8 +169,6 @@ namespace SistemaDePagoEmpleados
                 button3.BackColor = Color.FromArgb(4, 41, 68);
             if (Application.OpenForms["Form4"] == null)
                 button3.BackColor = Color.FromArgb(4, 41, 68);
-            if (Application.OpenForms["FrmEstadodeResultados"] == null)
-                button4.BackColor = Color.FromArgb(4, 41, 68);
         }
     }
 }

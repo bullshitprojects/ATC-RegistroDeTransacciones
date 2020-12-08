@@ -103,6 +103,7 @@ namespace RegistroDeTransacciones
                 reader.Close();
                 connect.closeCon();
                 oBalanceDeComprobacion = new BalanceDeComprobacion();
+                oBalanceDeComprobacion.codigo = " ";
                 oBalanceDeComprobacion.Cuenta = "           Sumas Iguales";
                 oBalanceDeComprobacion.MovimientoDeudor = movimientoDeudor;
                 oBalanceDeComprobacion.MovimientoAcreedor = movimientoAcreedor;
@@ -116,5 +117,6 @@ namespace RegistroDeTransacciones
             }
             return lBalanceDeComprobacion;
         }
+
     }
 }

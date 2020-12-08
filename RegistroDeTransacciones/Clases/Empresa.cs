@@ -179,5 +179,8 @@ namespace RegistroDeTransacciones.Clases
             return salida;
         }
 
+
+
+
     }
 }
